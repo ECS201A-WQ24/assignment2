@@ -36,4 +36,4 @@ from gem5.components.cachehierarchies.ruby.\
 
 class HW2MESITwoLevelCache(MESITwoLevelCacheHierarchy):
     def __init__(self):
-        super().__init__("64KiB", 8, "64KiB", 8, "256KiB", 4, 1)
+        super().__init__("32KiB", 8, "32KiB", 8, "256KiB", 4, 1)
