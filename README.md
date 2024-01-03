@@ -8,7 +8,7 @@ Originally from University of Wisconsin-Madison CS/ECE 752.
 
 Modified for ECS 201A, Winter 2024.
 
-**Due on *{{ site.data.course.dates.gem5_2 }}* 11:59 pm (PST)**: See [Submission](#submission) for details
+**Due on *02/02* 11:59 pm (PST)**: See [Submission](#submission) for details
 
 ## Table of Contents
 
@@ -46,7 +46,7 @@ work with matrices and vectors. The following code implements DAXPY in C++.
 
 int main()
 {
-  const int N = 131072;
+const int N = 196608;
   double X[N], Y[N], alpha = 0.5;
   std::random_device rd; std::mt19937 gen(rd());
   std::uniform_real_distribution<> dis(1, 2);
