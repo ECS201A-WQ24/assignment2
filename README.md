@@ -228,7 +228,8 @@ Moreover, **assume** you can trade **issue latency** with
 **floating point operation latency**.
 In addition, **assume** that the product of **issue latency** and
 **floating point operation latency** will always remain at a constant of `8`.
-For your simulations, evaulate the performance of the configurations shown below.
+For your simulations, evaulate the performance of the configurations shown
+below.
 
 | # | issue latency | floating point operation latency |
 |---|---------------|----------------------------------|
@@ -261,27 +262,44 @@ Next, let's focus on **integer operation latency** and
 **floating point operation latency**.
 Let's assume an intial value of `6 cycles` for **integer operation latency**
 and an initial value of `12 cycles` for **floating point operation latency**.
-For your experimentation, suppose you can only reduce one of these latencies by a factor of 2.
-This means that you can build a processor with an **integer operation latency** of `2 cycles` and a **floating point operation latency** of `8 cycles` or a processor with an **integer operation latency** of `4 cycles` and a **floating point operation latency** of `4 cycles`.
-For your experimentation, simulate the baseline case and the two possible **improved** cases.
-Here is a table showing all possible combinations of the latencies that you need to experiment with.
+For your experimentation, suppose you can only reduce one of these latencies by
+a factor of 2.
+This means that you can build a processor with an **integer operation latency**
+of `3 cycles` and a **floating point operation latency** of `12 cycles` or a
+processor with an **integer operation latency** of `6 cycles` and a
+**floating point operation latency** of `6 cycles`.
+For your experimentation, simulate the baseline case and the two possible
+**improved** cases.
+Here is a table showing all possible combinations of the latencies that you
+need to experiment with.
 
 | # | integer issue latency | integer operation latency | floating point issue latency | floating point operation latency |
 |---|-----------------------|---------------------------|------------------------------|----------------------------------|
-| 1 | 1                     | 4                         | 1                            | 8                                |
-| 2 | 1                     | 2                         | 1                            | 8                                |
-| 3 | 1                     | 4                         | 1                            | 4                                |
+| 1 | 1                     | 6                         | 1                            | 12                               |
+| 2 | 1                     | 3                         | 1                            | 12                               |
+| 3 | 1                     | 6                         | 1                            | 6                                |
 
 In your report answer the following questions.
 
-1. Use Amdahl's law and the information you gathered from [Step I](#step-i) to predict the speed up of each **improved** case over the **baseline**. Which design would you choose? **NOTE**: The only simulation result you can use to answer this question is the data you gathered from [Step I](#step-i).
-2. Using simulation results, what is the speed up of each **improved case** over the baseline design?
-3. If there are any differences between your answer to questions 1 and 2, what do you think could be the reason?
+1. Use Amdahl's law and the information you gathered from [Step I](#step-i) to
+predict the speed up of each **improved** case over the **baseline**.
+Which design would you choose?
+**NOTE**: The only simulation result you can use to answer this question is the
+data you gathered from [Step I](#step-i).
+2. Using simulation results, what is the speed up of each **improved case**
+over the baseline design?
+3. If there are any differences between your answer to questions 1 and 2, what
+do you think could be the reason?
 
 **Hints**:
 
-- Take a look at the assembly code for the `DAXPY` loop below (you can also find the complete assembly for it under `worklaods/daxpy/daxpy-gem5-asm`). Can you point out some dependencies between the instructions? Do you think only looking at the instruction mix gathered from [Step I](#step-i) provided enough information to apply Amdahl's law?
-- Think about the other stages of the pipeline, in this question we have only focused on **decode** and **execute**.
+- Take a look at the assembly code for the `DAXPY` loop below (you can also
+find the complete assembly for it under `worklaods/daxpy/daxpy-gem5-asm`).
+Can you point out some dependencies between the instructions?
+Do you think only looking at the instruction mix gathered from
+[Step I](#step-i) provided enough information to apply Amdahl's law?
+- Think about the other stages of the pipeline, in this question we have only
+focused on **decode** and **execute**.
 
 ```asm
 .L35:
@@ -299,15 +317,21 @@ In your report answer the following questions.
 	bne	s1,a5,.L35	#, _14, ivtmp.133,
 ```
 
-**NOTE**: Make sure to keep the simulation output for all of your simulation runs for your later analyses.
+**NOTE**: Make sure to keep the simulation output for all of your simulation
+runs for your later analyses.
 
 ## Submission
 
-As mentioned before, you are allowed to submit your assignments in **pairs** and in **PDF** format.
-You should submit your report on [gradescope](https://www.gradescope.com/courses/487868).
-In your report answer the questions presented in [Analysis and simulation](#analysis-and-simulation), [Analysis and simulation: Step I](#step-i), [Analysis and simulation: Step II](#step-ii), and [Analysis and simulation: Step III](#step-iii).
+As mentioned before, you are allowed to submit your assignments in **pairs**
+and in **PDF** format.
+You should submit your report on
+[gradescope](https://www.gradescope.com/courses/487868).
+In your report answer the questions presented in [Analysis and simulation](#analysis-and-simulation), [Analysis and simulation: Step I](#step-i),
+[Analysis and simulation: Step II](#step-ii), and
+[Analysis and simulation: Step III](#step-iii).
 Use clear reasoning and visualization to drive your conclusions.
-Submit all your code through your assignment repository. Please make sure to include code/scripts for the following.
+Submit all your code through your assignment repository. Please make sure to
+include code/scripts for the following.
 
 - `Instruction.md`: should include instruction on how to run your simulations.
 - Automation: code/scripts to run your simulations.
@@ -318,19 +342,34 @@ Submit all your code through your assignment repository. Please make sure to inc
 Like your submission, your grade is split into two parts.
 
 1. Reproducibility Package (50 points):
-    1. Instruction and automation to run simulations for different section and dump statistics (20 points)
+    1. Instruction and automation to run simulations for different section and
+    dump statistics (20 points)
         - Instructions (10 points)
         - Automation (10 points)
-    2. Configuration scripts and correct simulation setup (30 points): 3 points for each configuration as described in [Analysis and simulation: Step I](#step-i), [Analysis and simulation: Step II](#step-ii), and [Analysis and simulation: Step III](#step-iii)
-2. Report (50 points): 7 points for each question presented in [Analysis and simulation: Step I](#step-i), [Analysis and simulation: Step II](#step-ii), [Analysis and simulation: Step III](#step-iii)
+    2. Configuration scripts and correct simulation setup (30 points): 3 points
+    for each configuration as described in
+    [Analysis and simulation: Step I](#step-i),
+    [Analysis and simulation: Step II](#step-ii),
+    and [Analysis and simulation: Step III](#step-iii)
+2. Report (50 points): 7 points for each question presented in
+[Analysis and simulation: Step I](#step-i),
+[Analysis and simulation: Step II](#step-ii),
+[Analysis and simulation: Step III](#step-iii)
 
 ## Academic misconduct reminder
 
-You are required to work on this assignment in teams. You are only allowed to share you scripts and code with your teammate(s). You may discuss high level concepts with others in the class but all the work must be completed by your team and your team only.
+You are required to work on this assignment in teams. You are only allowed to
+share you scripts and code with your teammate(s).
+You may discuss high level concepts with others in the class but all the work
+must be completed by your team and your team only.
 
-Remember, DO NOT POST YOUR CODE PUBLICLY ON GITHUB! Any code found on GitHub that is not the base template you are given will be reported to SJA. If you want to sidestep this problem entirely, don’t create a public fork and instead create a private repository to store your work.
+Remember, DO NOT POST YOUR CODE PUBLICLY ON GITHUB! Any code found on GitHub
+that is not the base template you are given will be reported to SJA.
+If you want to sidestep this problem entirely, don’t create a public fork and
+instead create a private repository to store your work.
 
 ## Hints
 
 - Start early and ask questions on Piazza and in discussion.
-- If you need help, come to office hours for the TA, or post your questions on Piazza.
+- If you need help, come to office hours for the TA, or post your questions on
+Piazza.
