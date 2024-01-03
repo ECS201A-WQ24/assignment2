@@ -112,22 +112,47 @@ simulations.
 ### Region of Interest (ROI)
 
 As a computer architect, you should only consider the segment of the code that
-stresses the targeted part of the hardware. For instance, in the matrix
-multiplication program in assignment 1, there were three segments of the
-program: (a) initialization of the matrices, (b) multiplication of the matrices
-and (c) printing of the results. As you might have guessed, segment (b) is the
-important section that you need to study. We will have a similar approach
-for the DAXPY workload as well. 
+stresses the targeted part of the hardware.
+There are usually three segments to a program: (a) initialization of the
+matrices, (b) multiplication of the matrices and (c) printing of the results.
+As you might have guessed, segment (b) is the
+important section that you need to study.
+In the DAXPY code above, our ROI is the DAXPY loop.
+```cpp
+  // Start of daxpy loop
+  for (int i = 0; i < N; ++i)
+  {
+    Y[i] = alpha * X[i] + Y[i];
+  }
+  // End of daxpy loop
+```
+In gem5, you can annotate this region with gem5-specific instruction.
+In the `workloads/daxpy/daxpy.cpp`, the code is annotated as:
+```cpp
+#ifdef GEM5
+  m5_work_begin(0,0);
+#endif
+
+  // Start of daxpy loop
+  for (int i = 0; i < N; ++i)
+  {
+    Y[i] = alpha * X[i] + Y[i];
+  }
+  // End of daxpy loop
+
+#ifdef GEM5
+  m5_work_end(0,0);
+#endif
+```
+To compile this program, you need to include the `gem5/m5ops.h` header file.
+In the stats file generated after the simulation, you will only have statistics 
+within the defined ROI.
+
+The compiled program `daxpy-gem5` and it's assembly are already generated in
+the `workloads/daxpy/`. 
 
 ### **IMPORTANT NOTE**
 
-In gem5, you can dump the simulation statistics at any ROI that you define.
-For example, for the matrix multiply program you can do something like:
-```cpp
-int main() {
-  
-}
-```
 In your configuration scripts, make sure to import `exit_event_handler` using
 the command below.
 
@@ -148,7 +173,8 @@ simulator = Simulator(board={name of your board},
 ## Analysis and simulation
 
 Complete the following steps and answer the questions for your report.
-Collect data from your simulation runs and use simulator statistics to answer the questions.
+Collect data from your simulation runs and use simulator statistics to answer
+the questions.
 Use clear reasoning and visualization to drive your conclusions.
 You are allowed to submit your reports in **pairs** and in **PDF** format.
 
@@ -157,7 +183,8 @@ You are allowed to submit your reports in **pairs** and in **PDF** format.
 Before starting simulation and analysis, you should be able to identify the
 ROI of a  program.
 
-1. For the DAXPY program, identify the ROI. In your report  
+1. For the DAXPY's assembly code, identify the ROI. In your report, copy the
+assembly code segment corresponding to `m5_work_begin` and `m5_work_end`.  
 
 ### Step I
 
@@ -326,7 +353,8 @@ As mentioned before, you are allowed to submit your assignments in **pairs**
 and in **PDF** format.
 You should submit your report on
 [gradescope](https://www.gradescope.com/courses/487868).
-In your report answer the questions presented in [Analysis and simulation](#analysis-and-simulation), [Analysis and simulation: Step I](#step-i),
+In your report answer the questions presented in [Analysis and simulation](#analysis-and-simulation), [Analysis and simulation: Step 0](#step-0),
+[Analysis and simulation: Step I](#step-i),
 [Analysis and simulation: Step II](#step-ii), and
 [Analysis and simulation: Step III](#step-iii).
 Use clear reasoning and visualization to drive your conclusions.
