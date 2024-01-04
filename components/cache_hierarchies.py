@@ -1,4 +1,4 @@
-# Copyright (c) 2022 The Regents of the University of California
+# Copyright (c) 2022-24 The Regents of the University of California
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from gem5.components.cachehierarchies.ruby.\
-    mesi_two_level_cache_hierarchy import MESITwoLevelCacheHierarchy,
+    mesi_two_level_cache_hierarchy import MESITwoLevelCacheHierarchy
 
 
 # HW2MESITwoLevelCache models a two-level cache hierarchy with MESI coherency

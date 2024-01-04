@@ -1,4 +1,4 @@
-# Copyright (c) 2022 The Regents of the University of California
+# Copyright (c) 2022-24 The Regents of the University of California
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -24,13 +24,13 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from m5.objects import DDR3_1600_8x8
+from m5.objects import DDR4_2400_8x8
 
 from gem5.components.memory.memory import ChanneledMemory
 
 
-# HW2DDR3_1600_8x8 models a 1 GiB single channel DDR3 DRAM memory with a data
-# bus clocked at 1600MHz. This model extends ChanneledMemory from gem5's
+# HW2DDR4_2400_8x8 models a 1 GiB single channel DDR4 DRAM memory with a data
+# bus clocked at 2400MHz. This model extends ChanneledMemory from gem5's
 # standard libary. Please refer to
 #     gem5/src/python/gem5/components/memory/memory.py
 # for documentation on ChanneledMemory.
@@ -47,6 +47,6 @@ from gem5.components.memory.memory import ChanneledMemory
 #     )
 
 
-class HW2DDR3_1600_8x8(ChanneledMemory):
+class HW2DDR4_2400_8x8(ChanneledMemory):
     def __init__(self):
-        super().__init__(DDR3_1600_8x8, 1, 128, size="1GiB")
+        super().__init__(DDR4_2400_8x8, 1, 128, size="1GiB")
