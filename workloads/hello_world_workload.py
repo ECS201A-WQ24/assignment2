@@ -1,4 +1,4 @@
-# Copyright (c) 2022 The Regents of the University of California
+# Copyright (c) 2022-24 The Regents of the University of California
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -25,11 +25,11 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from .custom_se_workload import CustomSEWorkload
-from gem5.resources.resource import Resource
+from gem5.resources.resource import obtain_resource
 
 
 class HelloWorkload(CustomSEWorkload):
     def __init__(self):
         super().__init__(
-            parameters={"binary": Resource("riscv-hello"), "arguments": []}
+            parameters={"binary": obtain_resource("riscv-hello"), "arguments": []}
         )
