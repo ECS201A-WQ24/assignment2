@@ -194,7 +194,7 @@ This statistic represents a distribution of different operation classes executed
 In your report, answer the same questions after simulation supported with data.
 Use `HelloWorldWorkload` from `workloads/hello_world_workload.py` as a second program to compare instruction mixes.
 
-A complete set of simulation data for this step should include **2 configuration** (1 for `DAXPYWorkload` and 1 for `HelloWorldWorkload`).
+A complete set of simulation data for this step should include **two configuration** (one for `DAXPYWorkload` and one for `HelloWorldWorkload`).
 
 ### Step II
 
@@ -226,7 +226,7 @@ For your simulations, evaulate the performance of the configurations shown below
 **NOTE**: Make sure to keep track of your simulation outputs for all of your simulation runs for your later analyses.
 
 In your report, answer the following questions after simulation supported with data.
-A complete set of simulation data for this step should include **3 configurations** (3 possible combinations of **issue latency** and **floating point operation latency**).
+A complete set of simulation data for this step should include **three configurations** (three possible combinations of **issue latency** and **floating point operation latency**).
 
 1. Between the 3 designs, which one did you find to be the be the best design?
 2. Why do you think your chosen design in question 1 results in the best
