@@ -29,16 +29,13 @@ In this assignment, you are going to:
 - Evaluate the performance of different configurations of a pipeline,
 - Use Amdahl's law in practice.
 
-This homework is based on exercise 3.6 of
-[CA:AQA 3rd edition](https://www.google.com/books/edition/Computer_Architecture/XX69oNsazH4C)
-(the former textbook for this course) and was developed in part by Jason
-Lowe-Power et al., then modernized by Matt Sinclair and Jason Lowe-Power.
+This homework is based on exercise 3.6 of [CA:AQA 3rd edition](https://www.google.com/books/edition/Computer_Architecture/XX69oNsazH4C) (the former textbook for this course) and was developed in part by Jason Lowe-Power et al., then modernized by Matt Sinclair and Jason Lowe-Power.
 
 ## Workload
 
-For this assignment we are going to use DAXPY as our workload. The DAXPY
-loop (double precision `aX + Y`) is an often used operation in programs that
-work with matrices and vectors. The following code implements DAXPY in C++.
+For this assignment we are going to use DAXPY as our workload.
+The DAXPY loop (double precision `aX + Y`) is an often used operation in programs that work with matrices and vectors.
+The following code implements DAXPY in C++.
 
 ```cpp
 #include <cstdio>
@@ -161,8 +158,7 @@ simulator = Simulator(board={name of your board},
 ## Analysis and simulation
 
 Complete the following steps and answer the questions for your report.
-Collect data from your simulation runs and use simulator statistics to answer
-the questions.
+Collect data from your simulation runs and use simulator statistics to answer the questions.
 Use clear reasoning and visualization to drive your conclusions.
 You are allowed to submit your reports in **pairs** and in **PDF** format.
 
@@ -229,10 +225,7 @@ In your report, answer the following questions after simulation supported with d
 A complete set of simulation data for this step should include **three configurations** (three possible combinations of **issue latency** and **floating point operation latency**).
 
 1. Between the 3 designs, which one did you find to be the be the best design?
-2. Why do you think your chosen design in question 1 results in the best
-performance?
-Can you reason about why you would prefer optimizing one of the latencies over
-the other?
+2. Why do you think your chosen design in question 1 results in the best performance? Can you reason about why you would prefer optimizing one of the latencies over the other?
 
 ### Step III
 
@@ -240,8 +233,7 @@ For this step, modify your configuration script to allow for changing **integer 
 Let's assume our processor has a very fast **decode** stage that can issue both **integer** and **floating point** instructions in `1 cycle`.
 Next, let's focus on **integer operation latency** and **floating point operation latency**.
 Let's assume an intial value of `6 cycles` for **integer operation latency** and an initial value of `12 cycles` for **floating point operation latency**.
-For your experimentation, suppose you can only reduce one of these latencies by
-a factor of 2.
+For your experimentation, suppose you can only reduce one of these latencies by a factor of 2.
 This means that you can build a processor with an **integer operation latency** of `3 cycles` and a **floating point operation latency** of `12 cycles` or a processor with an **integer operation latency** of `6 cycles` and a **floating point operation latency** of `6 cycles`.
 For your experimentation, simulate the baseline case and the two possible **improved** cases.
 Here is a table showing all possible combinations of the latencies that you need to experiment with.
@@ -254,9 +246,7 @@ Here is a table showing all possible combinations of the latencies that you need
 
 In your report answer the following questions.
 
-1. Use Amdahl's law and the information you gathered from [Step I](#step-i) to predict the speed up of each **improved** case over the **baseline**.
-Which design would you choose?
-**NOTE**: The only simulation result you can use to answer this question is the data you gathered from [Step I](#step-i).
+1. Use Amdahl's law and the information you gathered from [Step I](#step-i) to predict the speed up of each **improved** case over the **baseline**. Which design would you choose? **NOTE**: The only simulation result you can use to answer this question is the data you gathered from [Step I](#step-i).
 2. Using simulation results, what is the speed up of each **improved case** over the baseline design?
 3. If there are any differences between your answer to questions 1 and 2, what do you think could be the reason?
 
@@ -333,5 +323,4 @@ If you want to sidestep this problem entirely, don’t create a public fork and 
 ## Hints
 
 - Start early and ask questions on Piazza and in discussion.
-- If you need help, come to office hours for the TA, or post your questions on
-Piazza.
+- If you need help, come to office hours for the TA, or post your questions on Piazza.
