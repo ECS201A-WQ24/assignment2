@@ -25,7 +25,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from gem5.simulate.exit_event import ExitEvent
-
+import m5
 
 def handle_workend():
     while True:
